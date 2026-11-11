@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conciliador-cascada"
+version = "0.1.0"
+description = "Conciliación de registros en cascada de 5 capas: exacta, normalizada y semántica (TF-IDF + rapidfuzz)"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Jairo Alonso Baquero" }]
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+    "rapidfuzz>=3.0",
+    "scikit-learn>=1.3",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+conciliador = "conciliador.cli:main"
+
+[tool.setuptools]
+packages = ["conciliador"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]

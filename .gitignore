@@ -1,0 +1,14 @@
+docs/prompts/
+.blocklist.local
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+salida/
+*.xlsx
+*.csv
+.env*
