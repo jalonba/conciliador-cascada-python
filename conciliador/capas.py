@@ -95,7 +95,6 @@ def capa_c2(codigos: pd.Series, catalogo: pd.DataFrame) -> pd.DataFrame:
     return _capa_por_clave(codigos, catalogo, normalizar_codigo, SCORE_C2)
 
 
-
 # ------------------------------------------------------------ capas semánticas
 
 
@@ -112,9 +111,7 @@ def desempatar(
     empatados = [c for c in candidatos if c[1] >= mejor - margen - 1e-12]
     if len(empatados) == 1:
         return empatados[0][0]
-    return min(
-        empatados, key=lambda c: (-fuzz.token_sort_ratio(consulta, c[2]), -c[1], c[0])
-    )[0]
+    return min(empatados, key=lambda c: (-fuzz.token_sort_ratio(consulta, c[2]), -c[1], c[0]))[0]
 
 
 class IndiceSemantico:
@@ -186,9 +183,7 @@ class IndiceSemantico:
 
         return pd.DataFrame(
             {
-                "candidato_pos": pd.array(
-                    [p if p >= 0 else pd.NA for p in pos_out], dtype="Int64"
-                ),
+                "candidato_pos": pd.array([p if p >= 0 else pd.NA for p in pos_out], dtype="Int64"),
                 "score": score_out,
                 "ambiguo": ambiguo_out,
             },

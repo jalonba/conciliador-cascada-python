@@ -133,7 +133,7 @@ def test_filas_sin_pareja_no_tienen_codigo_del_catalogo(datos):
 
 
 def test_filas_sin_pareja_no_copian_texto_del_catalogo(datos):
-    """Ni las ajenas ni las «vecinas» (combinación de vocabulario no usada) existen en el catálogo."""
+    """Ni las ajenas ni las «vecinas» (combinación no usada) existen en el catálogo."""
     cat, fac = datos
     sin_pareja = fac[fac["_escenario"].str.startswith("sin_pareja")]
     assert not sin_pareja["procedimiento"].isin(set(cat["procedimiento"])).any()

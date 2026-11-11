@@ -468,8 +468,7 @@ def main(argv: list[str] | None = None) -> int:
     catalogo.to_csv(args.salida / "catalogo.csv", index=False)
     facturado.to_csv(args.salida / "facturado.csv", index=False)
     print(
-        f"catálogo: {len(catalogo):,} ítems · facturado: {len(facturado):,} filas "
-        f"→ {args.salida}",
+        f"catálogo: {len(catalogo):,} ítems · facturado: {len(facturado):,} filas → {args.salida}",
         file=sys.stderr,
     )
     return 0

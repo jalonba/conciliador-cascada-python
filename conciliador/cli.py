@@ -1,6 +1,6 @@
 """Interfaz de línea de comandos.
 
-    python -m conciliador --facturado facturado.csv --catalogo catalogo.csv --salida salida/
+python -m conciliador --facturado facturado.csv --catalogo catalogo.csv --salida salida/
 """
 
 from __future__ import annotations

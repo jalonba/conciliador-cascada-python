@@ -35,7 +35,13 @@ def catalogo():
                 "CIERRE PRIMARIO DE LACERACIÓN EN CARA - MEDIANA COMPLEJIDAD",
                 "TOMA DE MUESTRA HISTOLÓGICA DE TIROIDES - ALTA COMPLEJIDAD",
             ],
-            "observacion": ["RX TX SIMP AMB", "ECO ABD HOSP", "RMN ROD C/CTE AMB", "SUT CAR URG", ""],
+            "observacion": [
+                "RX TX SIMP AMB",
+                "ECO ABD HOSP",
+                "RMN ROD C/CTE AMB",
+                "SUT CAR URG",
+                "",
+            ],
         }
     )
 

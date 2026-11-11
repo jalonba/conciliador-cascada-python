@@ -18,7 +18,11 @@ def catalogo():
     return pd.DataFrame(
         {
             "codigo": ["012345", "100002", "100003"],
-            "procedimiento": ["ECOGRAFÍA DE ABDOMEN", "SUTURA DE HERIDA EN CARA", "BIOPSIA DE MAMA"],
+            "procedimiento": [
+                "ECOGRAFÍA DE ABDOMEN",
+                "SUTURA DE HERIDA EN CARA",
+                "BIOPSIA DE MAMA",
+            ],
             "detalle": ["", "", ""],
             "observacion": ["", "", ""],
             "tarifa": [1, 2, 3],
@@ -35,7 +39,7 @@ def facturado():
                 "",
                 "",
                 "sutura herida cara",
-                "=HYPERLINK(\"http://ejemplo.invalid\",\"clic\")",
+                '=HYPERLINK("http://ejemplo.invalid","clic")',
                 "",
             ],
         }
@@ -52,7 +56,11 @@ def test_exportar_crea_los_dos_libros(tmp_path, catalogo, facturado):
     assert conciliado.name == "conciliado.xlsx"
     assert auditoria.name == "reporte_auditoria.xlsx"
     assert load_workbook(conciliado, read_only=True).sheetnames == ["conciliado"]
-    assert load_workbook(auditoria, read_only=True).sheetnames == ["resumen", "revisar", "semanticas"]
+    assert load_workbook(auditoria, read_only=True).sheetnames == [
+        "resumen",
+        "revisar",
+        "semanticas",
+    ]
 
 
 def test_conciliado_contiene_todas_las_filas(tmp_path, catalogo, facturado):
