@@ -55,7 +55,7 @@ Reglas de diseño:
 - **La ambigüedad no se resuelve al azar.** Un código o texto repetido en el catálogo no se usa
   para conciliar: la fila baja a la siguiente capa o va a revisión.
 - **Los códigos alfanuméricos se conservan.** Una validación ingenua tipo `^\d{6}$` descartaría en
-  silencio códigos como `89A201`; hay una prueba explícita para ese caso.
+  silencio códigos como `47K815`; hay una prueba explícita para ese caso.
 - **Desempate acotado.** `rapidfuzz` (`token_sort_ratio`) solo decide entre candidatos cuyo
   score TF-IDF está a menos de 0,02 del mejor.
 

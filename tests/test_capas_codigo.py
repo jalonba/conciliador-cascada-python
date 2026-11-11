@@ -10,7 +10,7 @@ from conciliador.capas import SCORE_C1, SCORE_C2, capa_c1, capa_c2
 def catalogo():
     return pd.DataFrame(
         {
-            "codigo": ["123456", "012345", "89A201", "777777", "777777", "5B0001"],
+            "codigo": ["123456", "012345", "47K815", "777777", "777777", "5B0001"],
             "procedimiento": ["UNO", "DOS", "TRES", "CUATRO A", "CUATRO B", "CINCO"],
         }
     )
@@ -24,9 +24,9 @@ def _serie(valores, indice=None):
 
 
 def test_c1_resuelve_codigo_exacto(catalogo):
-    r = capa_c1(_serie(["123456", "89A201"]), catalogo)
+    r = capa_c1(_serie(["123456", "47K815"]), catalogo)
     assert r["resuelto"].tolist() == [True, True]
-    assert r["candidato"].tolist() == ["123456", "89A201"]
+    assert r["candidato"].tolist() == ["123456", "47K815"]
     assert r["candidato_pos"].tolist() == [0, 2]
     assert (r["score"] == SCORE_C1).all()
     assert SCORE_C1 == 1.0
@@ -37,7 +37,7 @@ def test_c1_tolera_espacios_alrededor(catalogo):
     assert r["resuelto"].iloc[0]
 
 
-@pytest.mark.parametrize("variante", ["12-3456", "12345", "89a201", "0123456", "123456.0"])
+@pytest.mark.parametrize("variante", ["12-3456", "12345", "47k815", "0123456", "123456.0"])
 def test_c1_no_resuelve_variantes_normalizables(catalogo, variante):
     """C1 es estricta: las variantes son trabajo de C2."""
     r = capa_c1(_serie([variante]), catalogo)
@@ -78,7 +78,7 @@ def test_c1_entrada_vacia(catalogo):
         ("12.34.56", "123456"),
         ("12345", "012345"),  # se perdió el cero a la izquierda
         ("0012345", "012345"),  # sobra un cero
-        ("89a2-01", "89A201"),  # alfanumérico en minúsculas con guion
+        ("47k8-15", "47K815"),  # alfanumérico en minúsculas con guion
         ("5b0001", "5B0001"),
         (123456.0, "123456"),  # leído como float desde Excel
     ],

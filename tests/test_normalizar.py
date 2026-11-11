@@ -20,7 +20,7 @@ from conciliador.normalizar import normalizar_codigo, normalizar_texto
         ("12.34.56", "123456"),  # puntos
         ("12 34 56", "123456"),  # espacios internos
         ("12_34/56", "123456"),  # otros separadores
-        ("8a1203", "8A1203"),  # minúsculas → mayúsculas
+        ("3q2714", "3Q2714"),  # minúsculas → mayúsculas
     ],
 )
 def test_normalizar_codigo_casos_basicos(crudo, esperado):
@@ -29,9 +29,9 @@ def test_normalizar_codigo_casos_basicos(crudo, esperado):
 
 def test_codigo_alfanumerico_no_se_descarta():
     """Una regex ``^\\d{6}$`` descartaría en silencio este código; la normalización no."""
-    crudo = "89A2-01"
+    crudo = "47K8-15"
     assert re.fullmatch(r"^\d{6}$", crudo.replace("-", "")) is None  # la trampa existe
-    assert normalizar_codigo(crudo) == "89A201"
+    assert normalizar_codigo(crudo) == "47K815"
 
 
 @pytest.mark.parametrize("crudo", ["0A1234", "a01234", "00a123"])

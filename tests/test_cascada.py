@@ -15,7 +15,7 @@ from datos.generar_sinteticos import generar
 def catalogo():
     return pd.DataFrame(
         {
-            "codigo": ["100001", "012345", "89A201", "100004", "100005"],
+            "codigo": ["100001", "012345", "47K815", "100004", "100005"],
             "procedimiento": [
                 "RADIOGRAFÍA DE TÓRAX SIMPLE",
                 "ECOGRAFÍA DE ABDOMEN",
@@ -46,7 +46,7 @@ def catalogo():
 def facturado():
     return pd.DataFrame(
         {
-            "codigo": ["100001", "12345", "89a2-01", "", "N/A", "", "INT-123", ""],
+            "codigo": ["100001", "12345", "47k8-15", "", "N/A", "", "INT-123", ""],
             "procedimiento": [
                 "ECOGRAFIA DE ABDOMEN",  # contradice el código: manda C1
                 "",
@@ -78,7 +78,7 @@ def test_cada_capa_resuelve_su_caso(catalogo, facturado):
     esperado = {
         10: ("C1", "100001"),
         11: ("C2", "012345"),
-        12: ("C2", "89A201"),
+        12: ("C2", "47K815"),
         13: ("C3", "100004"),
         14: ("C4", "100005"),
         15: ("C5", "100001"),

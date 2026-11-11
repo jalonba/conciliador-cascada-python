@@ -1,7 +1,7 @@
 """Normalización de códigos y textos antes de comparar.
 
 Las reglas son deliberadamente conservadoras: no se descarta ningún carácter
-alfanumérico, de modo que un código como ``89A201`` sobrevive intacto (una
+alfanumérico, de modo que un código como ``47K815`` sobrevive intacto (una
 validación ingenua tipo ``^\\d{6}$`` lo perdería en silencio).
 """
 
