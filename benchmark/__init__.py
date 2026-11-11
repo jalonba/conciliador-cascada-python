@@ -1,0 +1,1 @@
+"""Benchmark sobre datos sintéticos."""
