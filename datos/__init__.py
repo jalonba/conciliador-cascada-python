@@ -1,0 +1,1 @@
+"""Generación de datos sintéticos."""
